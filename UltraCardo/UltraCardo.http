@@ -1,0 +1,6 @@
+@UltraCardo_HostAddress = http://localhost:5142
+
+GET {{UltraCardo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
