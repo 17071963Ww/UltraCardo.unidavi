@@ -1,4 +1,6 @@
-﻿namespace UltraCardo.API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace UltraCardo.API.Models
 {
     public class Produto
     {

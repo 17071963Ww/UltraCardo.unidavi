@@ -3,7 +3,7 @@
     public class Pedido
     {
         public int Id { get; set; }
-        public DateTime Data { get; set; } = DateTime.Now;
+        public DateTime Data { get; set; } = DateTime.UtcNow;
 
         public List<Produto> Produtos { get; set; } = new();
 

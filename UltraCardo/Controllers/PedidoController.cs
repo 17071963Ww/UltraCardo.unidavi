@@ -16,6 +16,14 @@ namespace UltraCardo.API.Controllers
             _context = context;
         }
 
+        [HttpPost]
+        public async Task<ActionResult<Pedido>> Post(Pedido pedido)
+        {
+            _context.Pedidos.Add(pedido);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetById), new { id = pedido.Id }, pedido);
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pedido>>> GetAll()
         {
@@ -30,14 +38,6 @@ namespace UltraCardo.API.Controllers
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             return pedido == null ? NotFound() : pedido;
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Pedido>> Post(Pedido pedido)
-        {
-            _context.Pedidos.Add(pedido);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = pedido.Id }, pedido);
         }
 
         [HttpPut("{id}")]
